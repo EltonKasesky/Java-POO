@@ -64,6 +64,7 @@ public class TesteCalculadora {
                     break;
                 default:
                     System.out.println("Selecione uma opção valida no menu!");
+                    break;
             }
         }
     }
