@@ -1,5 +1,7 @@
 package com.example.interfacejava.java;
 
+import com.example.interfacejava.exception.ContaCorrenteException;
+
 public class ContaCorrente implements Conta {
     private String titular;
     private Double saldo;
@@ -47,7 +49,8 @@ public class ContaCorrente implements Conta {
             this.saques++;
             return true;
         }
-        return false;
+        //Exceção vista na aula 6
+        throw new ContaCorrenteException("Saldo insuficiente!");
     }
 
     @Override
@@ -56,7 +59,11 @@ public class ContaCorrente implements Conta {
             this.saldo += valor;
             this.depositos++;
         } else {
-            System.out.println("Valor invalido!");
+            throw new ContaCorrenteException("O deposito deve ser maior que 0 (zero)!");
         }
+    }
+
+    public void investimento(Double valor) throws ContaCorrenteException {
+        this.setSaldo(this.getSaldo() - valor);
     }
 }
