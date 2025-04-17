@@ -56,7 +56,7 @@ public class Cliente {
             System.out.print("Digite o id do cliente: ");
             id = scanner.nextInt();
 
-            if(id == 0){
+            if(id <= 0){
                 break;
             }
 
